@@ -46,6 +46,9 @@ class StorageAdapterFactory
         if (isset($config['prefix'])) {
             Redis::setPrefix($config['prefix']);
         }
+        
+        $config['port'] = (int) $config['port'];
+        $config['timeout'] = (float) $config['timeout'];
 
         return new Redis($config);
     }
